@@ -31,8 +31,6 @@ const Conta = () => {
         getData()
     }, [])
 
-    const actualData = new Date()
-
     if(userData && id !== userData.id) {
         navigate('/')
     }
@@ -40,6 +38,8 @@ const Conta = () => {
     const moreInfos = () =>{
         navigate('/infoconta')
     }
+
+    const actualData = new Date()
   
     return (
         <Center>

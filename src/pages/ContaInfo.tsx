@@ -1,8 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import { api } from "../api";
 import CardInfo from "../components/CardInfo";
-import { Button, Center, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { Center, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { AppContext } from "../components/AppContext"
 
 interface UserData {
@@ -15,7 +15,6 @@ interface UserData {
 
 const ContaInfo = () => { 
     const [ userData, setUserData ] = useState<null | UserData>()
-    const { id } = useParams()
     const navigate = useNavigate()
 
     const { isLoggedIn } = useContext(AppContext)
@@ -24,15 +23,12 @@ const ContaInfo = () => {
 
     useEffect(() => {
         const getData = async () => {
-            api.then((response: any | UserData)=>{
-                setUserData(response)
-            })
-            if(userData && id !== userData.id) {
-                navigate('/')
-            }
+            const data: any | UserData = await api
+            setUserData(data)
         }
+
         getData()
-    },[])
+    }, [])
 
     const voltar = () => {
         navigate('/conta/1')

@@ -19,7 +19,7 @@ export const AppContextProvider = ({ children }: any) => {
         const { login } = JSON.parse(storage)
         setIsLoggedIn(login)
       }
-    }, [])
+    }, [storage])
 
     const user = 'nathally'
   
