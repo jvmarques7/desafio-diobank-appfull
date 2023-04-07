@@ -36,6 +36,10 @@ const Conta = () => {
     if(userData && id !== userData.id) {
         navigate('/')
     }
+
+    const moreInfos = () =>{
+        navigate('/infoconta')
+    }
   
     return (
         <Center>
@@ -49,12 +53,14 @@ const Conta = () => {
                     ) : 
                     (
                         <>
-                            <CardInfo mainContent={`Bem vinda ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
-                            <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
+                            <CardInfo mainContent={`Bem vindo, ${userData?.name}!`}
+                                content={[`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`]} 
+                                onClick={(moreInfos)} title='more infos'/>
+                            <CardInfo mainContent='Saldo' content={[`R$ ${userData.balance.toFixed(2)}`]}/>
                         </>
                     )
                 }
-            </SimpleGrid>    
+            </SimpleGrid> 
         </Center>
     )
 }
