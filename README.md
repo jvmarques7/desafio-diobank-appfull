@@ -4,6 +4,8 @@ com mentoria de [Nathally Souza](https://github.com/nathyts)
 
 #### Projeto desenvolvido com conceitos básicos de typescript
 
+App com validação de login utilizando api.
+
 ### Tecnologias
 - Typescript
 
